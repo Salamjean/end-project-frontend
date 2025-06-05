@@ -61,7 +61,7 @@ const Dashboard = () => {
       }
 
       // Récupérer les réservations
-      const reservationsResponse = await axios.get('https://end-projet-backend.onrender.com/api/reservations/admin/all', {
+      const reservationsResponse = await axios.get('http://localhost:5000/api/reservations/admin/all', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ const Dashboard = () => {
         .reduce((sum, res) => sum + (res.totalPrice || 0), 0);
 
       // Récupérer les clients
-      const clientsResponse = await axios.get('https://end-projet-backend.onrender.com/api/clients', {
+      const clientsResponse = await axios.get('http://localhost:5000/api/clients', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ const Dashboard = () => {
       });
 
       // Récupérer les parkings
-      const parkingsResponse = await axios.get('https://end-projet-backend.onrender.com/api/parkings', {
+      const parkingsResponse = await axios.get('http://localhost:5000/api/parkings', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

@@ -54,7 +54,7 @@ const Clients = () => {
         return;
       }
 
-      const response = await axios.get('https://end-projet-backend.onrender.com/api/clients', {
+      const response = await axios.get('http://localhost:5000/api/clients', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -77,7 +77,7 @@ const Clients = () => {
         return;
       }
 
-      await axios.delete(`https://end-projet-backend.onrender.com/api/clients/${clientId}`, {
+      await axios.delete(`http://localhost:5000/api/clients/${clientId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

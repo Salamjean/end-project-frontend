@@ -15,7 +15,7 @@ const ParkingList = () => {
 
   const fetchParkings = async () => {
     try {
-      const response = await axios.get('https://end-projet-backend.onrender.com/api/parkings');
+      const response = await axios.get('http://localhost:5000/api/parkings');
       setParkings(response.data);
     } catch (error) {
       console.error('Erreur lors de la récupération des parkings:', error);
@@ -47,7 +47,7 @@ const ParkingList = () => {
               {parking.image && (
                 <Card.Img
                   variant="top"
-                  src={`https://end-projet-backend.onrender.com/uploads/${parking.image}`}
+                  src={`http://localhost:5000/uploads/${parking.image}`}
                   alt={parking.name}
                   style={{ height: '200px', objectFit: 'cover' }}
                 />

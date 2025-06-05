@@ -59,7 +59,7 @@ const AddClient = () => {
 
   const fetchParkings = async () => {
     try {
-      const response = await axios.get('https://end-projet-backend.onrender.com/api/parkings');
+      const response = await axios.get('http://localhost:5000/api/parkings');
       if (Array.isArray(response.data)) {
         setParkings(response.data);
       }
@@ -146,7 +146,7 @@ const AddClient = () => {
       console.log('Envoi des données client:', clientData);
 
       const clientResponse = await axios.post(
-        'https://end-projet-backend.onrender.com/api/clients',
+        'http://localhost:5000/api/clients',
         clientData,
         {
           headers: {

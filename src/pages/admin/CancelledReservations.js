@@ -43,7 +43,7 @@ const CancelledReservations = () => {
         return;
       }
 
-      const response = await axios.get('https://end-projet-backend.onrender.com/api/reservations/admin/all', {
+      const response = await axios.get('http://localhost:5000/api/reservations/admin/all', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ const CancelledReservations = () => {
         return;
       }
 
-      await axios.delete(`https://end-projet-backend.onrender.com/api/reservations/admin/${reservationToDelete._id}`, {
+      await axios.delete(`http://localhost:5000/api/reservations/admin/${reservationToDelete._id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

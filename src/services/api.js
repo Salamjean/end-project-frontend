@@ -2,7 +2,7 @@ import axios from 'axios';
 import { mockUsers } from '../mock/data';
 import { parkingData } from '../mock/parkingData';
 
-const API_URL = 'https://end-projet-backend.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -129,7 +129,7 @@ export const parkingService = {
         const formattedData = response.data.map(parking => ({
           ...parking,
           id: parking._id,
-          image: parking.image ? `https://end-projet-backend.onrender.com/uploads/${parking.image}` : '/images/default-parking.jpg',
+          image: parking.image ? `http://localhost:5000/uploads/${parking.image}` : '/images/default-parking.jpg',
           pricePerHour: parseFloat(parking.pricePerHour),
           totalSpots: parseInt(parking.totalSpots),
           availableSpots: parseInt(parking.availableSpots)
@@ -158,7 +158,7 @@ export const parkingService = {
         const formattedData = {
           ...response.data,
           id: response.data._id,
-          image: response.data.image ? `https://end-projet-backend.onrender.com/uploads/${response.data.image}` : '/images/default-parking.jpg',
+          image: response.data.image ? `http://localhost:5000/uploads/${response.data.image}` : '/images/default-parking.jpg',
           pricePerHour: parseFloat(response.data.pricePerHour),
           totalSpots: parseInt(response.data.totalSpots),
           availableSpots: parseInt(response.data.availableSpots)

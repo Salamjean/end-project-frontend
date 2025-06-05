@@ -65,7 +65,7 @@ const ParkingDetails = () => {
             component="img"
             height="400"
             image={parking.image 
-              ? `https://end-projet-backend.onrender.com/uploads/${parking.image}`
+              ? `http://localhost:5000/uploads/${parking.image}`
               : 'https://source.unsplash.com/random/1200x800/?parking'}
             alt={parking.name}
             sx={{ objectFit: 'cover' }}

@@ -25,8 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "serve": "serve -s build -l 3000",
-    "deploy": "set HOST=0.0.0.0 && set PORT=3000 && react-scripts start",
-    "serve:prod": "serve -s build -l 3000 --cors",
+    "dev": "set PORT=3000 && react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
