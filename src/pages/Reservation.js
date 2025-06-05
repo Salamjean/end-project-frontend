@@ -402,7 +402,7 @@ const Reservation = () => {
                                 component="img"
                                 height="250"
                                 image={parking.image 
-                                  ? `http://localhost:5000/uploads/${parking.image}`
+                                  ? `https://end-projet-backend.onrender.com/uploads/${parking.image}`
                                   : 'https://source.unsplash.com/random/800x600/?parking'}
                                 alt={parking.name}
                               />

@@ -38,7 +38,7 @@ const EditParking = () => {
       const response = await parkingService.getById(id);
       setParking(response.data);
       if (response.data.image) {
-        setPreviewImage(`http://localhost:5000/uploads/${response.data.image}`);
+        setPreviewImage(`https://end-projet-backend.onrender.com/uploads/${response.data.image}`);
       }
       setLoading(false);
     } catch (error) {

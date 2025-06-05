@@ -2,36 +2,37 @@ import React, { useState, useEffect } from 'react';
 import {
   Container,
   Typography,
+  Box,
   Button,
-  Grid,
-  Card,
-  CardContent,
-  CardActions,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
   TextField,
+  Grid,
+  Card,
+  CardContent,
+  CardActions,
+  useTheme,
+  useMediaQuery,
   IconButton,
-  Box,
-  Paper,
-  Chip,
-  Avatar,
   Divider
 } from '@mui/material';
 import {
-  Add as AddIcon,
   Edit as EditIcon,
   Delete as DeleteIcon,
+  Add as AddIcon,
   LocalParking as ParkingIcon,
   AttachMoney as MoneyIcon,
   LocationOn as LocationIcon,
   EventSeat as SeatIcon
 } from '@mui/icons-material';
-import { parkingService } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { parkingService } from '../../services/api';
 
 const Parkings = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [parkings, setParkings] = useState([]);
   const [open, setOpen] = useState(false);
   const [editingParking, setEditingParking] = useState(null);
@@ -116,10 +117,19 @@ const Parkings = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('address', formData.address);
+      formDataToSend.append('totalSpots', formData.totalSpots);
+      formDataToSend.append('pricePerHour', formData.pricePerHour);
+      if (formData.image) {
+        formDataToSend.append('image', formData.image);
+      }
+
       if (editingParking) {
-        await parkingService.update(editingParking.id, formData);
+        await parkingService.update(editingParking.id, formDataToSend);
       } else {
-        await parkingService.create(formData);
+        await parkingService.create(formDataToSend);
       }
       fetchParkings();
       handleClose();

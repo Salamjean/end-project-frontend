@@ -43,7 +43,7 @@ const ConfirmedReservations = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:5000/api/reservations/admin/all', {
+      const response = await axios.get('https://end-projet-backend.onrender.com/api/reservations/admin/all', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ const ConfirmedReservations = () => {
       }
 
       await axios.put(
-        `http://localhost:5000/api/reservations/admin/${id}/reject`,
+        `https://end-projet-backend.onrender.com/api/reservations/admin/${id}/reject`,
         {},
         {
           headers: {
