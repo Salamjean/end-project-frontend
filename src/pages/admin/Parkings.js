@@ -14,25 +14,20 @@ import {
   CardContent,
   CardActions,
   useTheme,
-  useMediaQuery,
-  IconButton,
   Divider
 } from '@mui/material';
 import {
   Edit as EditIcon,
   Delete as DeleteIcon,
   Add as AddIcon,
-  LocalParking as ParkingIcon,
   AttachMoney as MoneyIcon,
   LocationOn as LocationIcon,
   EventSeat as SeatIcon
 } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
 import { parkingService } from '../../services/api';
 
 const Parkings = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [parkings, setParkings] = useState([]);
   const [open, setOpen] = useState(false);
   const [editingParking, setEditingParking] = useState(null);
@@ -44,7 +39,6 @@ const Parkings = () => {
     image: null
   });
   const [previewImage, setPreviewImage] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchParkings();
@@ -147,13 +141,6 @@ const Parkings = () => {
         console.error('Erreur lors de la suppression du parking:', error);
       }
     }
-  };
-
-  const getAvailabilityColor = (available, total) => {
-    const ratio = available / total;
-    if (ratio > 0.5) return 'success';
-    if (ratio > 0.2) return 'warning';
-    return 'error';
   };
 
   return (
